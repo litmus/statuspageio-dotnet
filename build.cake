@@ -28,7 +28,7 @@ Task("UnitTest")
 	.IsDependentOn("Setup")
 	.Does(() => {
 		var resultsFile = artifactsDirectory + "/NUnitResults.xml";
-		NUnit3("./StatusPageIo.Test/bin/Release/StatusPageIo.Test.dll", new NUnit3Settings()
+		NUnit3("./StatusPageIo/StatusPageIo.UnitTests/bin/Release/StatusPageIo.UnitTests.dll", new NUnit3Settings()
 		{
 			Results = resultsFile,
 		});
