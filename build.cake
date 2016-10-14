@@ -1,4 +1,4 @@
-﻿#tool nuget:?package=NUnit.ConsoleRunner&version=3.4.1
+﻿#tool nuget:?package=NUnit.ConsoleRunner&version=3.5.0
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
