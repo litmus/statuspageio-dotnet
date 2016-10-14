@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>StatusPageIo.Api</id>
+    <version>$version$</version>
+    <title>StatusPageIo.Api</title>
+    <authors>Litmus</authors>
+    <owners>Litmus</owners>
+    <language>en-us</language>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.NET Client Library for the StatusPage.Io API </description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014-2016 Litmus</copyright>
+    <licenseUrl>https://github.com/litmus/statuspageio-dotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/litmus/statuspageio-dotnet</projectUrl>
+    <tags>statuspage.io statuspage atlassian</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0.6" />
+    </dependencies>
+  </metadata>
+    <files>
+       <file src="StatusPageIo.Api.dll" target="lib/net45" />
+    </files>
+</package>

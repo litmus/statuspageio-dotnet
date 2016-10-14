@@ -3,7 +3,7 @@
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 var version = AppVeyor.IsRunningOnAppVeyor ? AppVeyor.Environment.Build.Version : "0.0.1";
-var releaseBinPath = "./StatusPageIo/bin/Release";
+var releaseBinPath = "./StatusPageIo/StatusPageIo.Api/bin/Release";
 var artifactsDirectory = "./artifacts";
 
 Task("Restore-NuGet-Packages")
@@ -43,7 +43,7 @@ Task("Pack")
 	.IsDependentOn("Build")
 	.IsDependentOn("Setup")
 	.Does(() => {
-		NuGetPack("./StatusPageIo/StatusPageIo.nuspec", new NuGetPackSettings()
+		NuGetPack("./StatusPageIo/StatusPageIo.Api/StatusPageIo.Api.nuspec", new NuGetPackSettings()
 		{
 			Version = version,
 			ArgumentCustomization = args => args.Append("-Prop Configuration=" + configuration),
