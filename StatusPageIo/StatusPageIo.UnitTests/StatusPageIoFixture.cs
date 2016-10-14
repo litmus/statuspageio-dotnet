@@ -3,6 +3,7 @@ using NUnit.Framework;
 using StatusPageIo.Api;
 using StatusPageIo.Api.Models.Components;
 using StatusPageIo.Api.Models.Incidents;
+using System.Threading.Tasks;
 
 namespace StatusPageIo.UnitTests
 {
@@ -23,7 +24,7 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void GetPage_ShouldReturnValidPage()
+        public async Task GetPage_ShouldReturnValidPage()
         {
             var page = await statusPageIo.GetPageProfile(pageId);
 
@@ -31,7 +32,7 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void UpdatePage_ShouldReturnUpdatedPage()
+        public async Task UpdatePage_ShouldReturnUpdatedPage()
         {
             var page = await statusPageIo.GetPageProfile(pageId);
 
@@ -48,14 +49,14 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void GetComponents_ShouldReturnAtLeastOneComponent()
+        public async Task GetComponents_ShouldReturnAtLeastOneComponent()
         {
             var components = await statusPageIo.GetComponents(pageId);
             Assert.That(components.Any());
         }
 
         [Test]
-        public async void UpdateComponent_ShouldReturnUpdatedComponent()
+        public async Task UpdateComponent_ShouldReturnUpdatedComponent()
         {
             var components = await statusPageIo.GetComponents(pageId);
             Assert.That(components.Any());
@@ -76,28 +77,28 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void GetAllIncidents_ShouldReturnAtLeastOneIncident()
+        public async Task GetAllIncidents_ShouldReturnAtLeastOneIncident()
         {
             var components = await statusPageIo.GetAllIncidents(pageId);
             Assert.That(components.Any());
         }
 
         [Test]
-        public async void GetUnresolvedIncidents_ShouldReturnAtLeastOneIncident()
+        public async Task GetUnresolvedIncidents_ShouldReturnAtLeastOneIncident()
         {
             var components = await statusPageIo.GetUnresolvedIncidents(pageId);
             Assert.That(components.All(n => n.Status != IncidentStatus.Resolved));
         }
 
         [Test]
-        public async void GetScheduledIncidents_ShouldReturnAtLeastOneIncident()
+        public async Task GetScheduledIncidents_ShouldReturnAtLeastOneIncident()
         {
             var components = await statusPageIo.GetScheduledIncidents(pageId);
             Assert.That(components.All(n => n.Status == IncidentStatus.Scheduled));
         }
 
         [Test]
-        public async void CreateRealtimeIncident_ShouldReturnNewIncident()
+        public async Task CreateRealtimeIncident_ShouldReturnNewIncident()
         {
             var incident = await statusPageIo.CreateRealtimeIncident(pageId, "Test Incident");
             Assert.That(incident.Name == "Test Incident");
@@ -110,7 +111,7 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void GetSubscribers_ShouldReturnAtLeastOneSubscriber()
+        public async Task GetSubscribers_ShouldReturnAtLeastOneSubscriber()
         {
             var subscriber1 = await statusPageIo.CreateEmailSubscriber(pageId, testSubscriberEmail);
 
@@ -122,7 +123,7 @@ namespace StatusPageIo.UnitTests
 
         //this sends real SMS and email
         [Test]
-        public async void CreateSubscribers_ShouldCreateSubscriber()
+        public async Task CreateSubscribers_ShouldCreateSubscriber()
         {
             var subscriber1 = await statusPageIo.CreateEmailSubscriber(pageId, testSubscriberEmail);
             Assert.That(subscriber1, Is.Not.Null);
@@ -135,14 +136,14 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
-        public async void GetMetricProviders_ShouldReturnFiveMetricProviders()
+        public async Task GetMetricProviders_ShouldReturnFiveMetricProviders()
         {
             var providers = await statusPageIo.GetMetricProviders();
             Assert.That(providers.Count() == 5);
         }
 
         [Test]
-        public async void GetMetricProvidersForPage_ShouldReturnAMetricProviders()
+        public async Task GetMetricProvidersForPage_ShouldReturnAMetricProviders()
         {
             var providers = await statusPageIo.GetMetricProvidersForPage(pageId);
             Assert.That(providers.Any());
