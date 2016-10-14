@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatusPageIo.Api", "StatusPageIo\StatusPageIo.Api\StatusPageIo.Api.csproj", "{61802690-CD85-4708-8735-3CE777A405FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatusPageIo.UnitTests", "StatusPageIo\StatusPageIo.UnitTests\StatusPageIo.UnitTests.csproj", "{B5EBE570-9B47-4C58-BCCF-476AA2CC1732}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FE948C23-2298-4B37-A077-1897B551669F}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+		build.ps1 = build.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
