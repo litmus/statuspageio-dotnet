@@ -33,8 +33,8 @@ Task("UnitTest")
 		NUnit3("./StatusPageIo/StatusPageIo.UnitTests/bin/Release/StatusPageIo.UnitTests.dll", settings);
 
 		if(AppVeyor.IsRunningOnAppVeyor)
-		{
-			AppVeyor.UploadTestResults("TestResults.xml", AppVeyorTestResultsType.NUnit3);
+		{			
+			AppVeyor.UploadTestResults("./TestResult.xml", AppVeyorTestResultsType.NUnit3);
 		}
 	});
 
