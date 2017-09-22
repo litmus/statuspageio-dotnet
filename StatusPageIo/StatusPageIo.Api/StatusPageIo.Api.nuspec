@@ -15,10 +15,10 @@
     <projectUrl>https://github.com/litmus/statuspageio-dotnet</projectUrl>
     <tags>statuspage.io statuspage atlassian</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="6.0.6" />
+      <dependency id="Newtonsoft.Json" version="10.0.3" />
     </dependencies>
   </metadata>
     <files>
-       <file src="StatusPageIo.Api.dll" target="lib/net45" />
+       <file src="StatusPageIo.Api.dll" target="lib\net45" />
     </files>
 </package>
