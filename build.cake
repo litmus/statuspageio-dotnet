@@ -34,7 +34,7 @@ Task("UnitTest")
 
 		if(AppVeyor.IsRunningOnAppVeyor)
 		{
-			AppVeyor.UploadTestResults("./TestResults.xml", AppVeyorTestResultsType.NUnit3);
+			AppVeyor.UploadTestResults("TestResults.xml", AppVeyorTestResultsType.NUnit3);
 		}
 	});
 
