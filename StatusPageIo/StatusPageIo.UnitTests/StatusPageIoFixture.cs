@@ -111,6 +111,7 @@ namespace StatusPageIo.UnitTests
         }
 
         [Test]
+        [Ignore("Trial pages cannot add subscribers who are not team members")]
         public async Task GetSubscribers_ShouldReturnAtLeastOneSubscriber()
         {
             var subscriber1 = await statusPageIo.CreateEmailSubscriber(pageId, testSubscriberEmail);
@@ -123,6 +124,7 @@ namespace StatusPageIo.UnitTests
 
         //this sends real SMS and email
         [Test]
+        [Ignore("Trial pages cannot add subscribers who are not team members")]
         public async Task CreateSubscribers_ShouldCreateSubscriber()
         {
             var subscriber1 = await statusPageIo.CreateEmailSubscriber(pageId, testSubscriberEmail);

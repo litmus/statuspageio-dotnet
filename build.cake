@@ -30,7 +30,7 @@ Task("UnitTest")
 		var resultsFile = artifactsDirectory + "/NUnitResults.xml";
 		NUnit3("./StatusPageIo/StatusPageIo.UnitTests/bin/Release/StatusPageIo.UnitTests.dll", new NUnit3Settings()
 		{
-			Results = resultsFile,
+			OutputFile = resultsFile,
 		});
 
 		if(AppVeyor.IsRunningOnAppVeyor)
