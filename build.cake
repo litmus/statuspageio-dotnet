@@ -26,16 +26,15 @@ Task("Build")
 Task("UnitTest")
 	.IsDependentOn("Build")
 	.IsDependentOn("Setup")
-	.Does(() => {
-		var resultsFile = artifactsDirectory + "/NUnitResults.xml";
-		NUnit3("./StatusPageIo/StatusPageIo.UnitTests/bin/Release/StatusPageIo.UnitTests.dll", new NUnit3Settings()
-		{
-			OutputFile = resultsFile,
-		});
+	.Does(() => {	
+		var settings = new NUnit3Settings();
+		settings.NoResults = false;		
+		
+		NUnit3("./StatusPageIo/StatusPageIo.UnitTests/bin/Release/StatusPageIo.UnitTests.dll", settings);
 
 		if(AppVeyor.IsRunningOnAppVeyor)
 		{
-			AppVeyor.UploadTestResults(resultsFile, AppVeyorTestResultsType.NUnit3);
+			AppVeyor.UploadTestResults("./TestResults.xml", AppVeyorTestResultsType.NUnit3);
 		}
 	});
 
