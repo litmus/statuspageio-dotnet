@@ -8,6 +8,6 @@ namespace StatusPageIo.Api.Models.Components
 {
     public enum ComponentStatus
     {
-        Operational, DegradedPerformance, PartialOutage, MajorOutage
+        Operational, DegradedPerformance, PartialOutage, MajorOutage, UnderMaintenance
     }
 }
