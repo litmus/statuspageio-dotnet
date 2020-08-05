@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Net;
 using NUnit.Framework;
 using StatusPageIo.Api;
 using StatusPageIo.Api.Models.Components;
@@ -20,6 +21,8 @@ namespace StatusPageIo.UnitTests
         [SetUp]
         public void SetUp()
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             statusPageIo = new StatusPageIoApi(authToken);
         }
 
